@@ -1,0 +1,134 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img
+        src="https://s3.amazonaws.com/angularminds.com/new-blog-images/angular-wordmark-gradient.png"
+        alt="Logo Angular"
+        width="10%"
+        class="d-inline-block align-text-top"
+        style="margin-inline-start: 25px"
+      />
+      <span style="margin-inline-start: 10px">
+        <i class="fa fa-check-circle"></i> Todo App
+      </span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li
+          *ngIf="!isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink="/register"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-user-plus me-2"></i> Register
+          </a>
+        </li>
+
+        <li
+          *ngIf="!isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink="/login"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-sign-in-alt me-2"></i> Login
+          </a>
+        </li>
+
+        <li
+          *ngIf="isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink="/profil"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-check-square me-2"></i> Profil
+          </a>
+        </li>
+
+        <li
+          *ngIf="isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink="/counter"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-tachometer-alt me-2"></i> Counter
+          </a>
+        </li>
+
+        <li
+          *ngIf="isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink="/todo-list"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-check-square me-2"></i> Todo
+          </a>
+        </li>
+
+        <li
+          *ngIf="isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
+          <a class="nav-link d-flex align-items-center" (click)="logout()">
+            <i class="fas fa-sign-out-alt me-2"></i> Logout
+          </a>
+        </li>
+        <li
+          *ngIf="isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
+          <a class="nav-link d-flex align-items-center">
+            <span *ngIf="avatarUrl; else defaultAvatar">
+              <img
+                [src]="avatarUrl"
+                alt="Avatar"
+                width="40px"
+                height="40px"
+                class="avatar-img"
+              />
+            </span>
+            <ng-template #defaultAvatar>
+              <div style="color: red" class="avatar-placeholder">
+                {{ initials }}
+              </div>
+            </ng-template>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

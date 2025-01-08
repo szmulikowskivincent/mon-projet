@@ -1,0 +1,128 @@
+<div class="spacer"></div>
+
+<div class="profile-form">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend><i class="bi bi-person"></i> Profil</legend>
+
+      <div class="form-group">
+        <label for="avatar"> <i class="bi bi-image"></i> Avatar </label>
+        <br />
+        <div class="avatar">
+          <img
+            *ngIf="avatarUrl; else defaultAvatar"
+            [src]="avatarUrl"
+            alt="Avatar"
+            width="5%"
+          />
+        </div>
+        <br />
+        <input type="file" (change)="onFileChange($event)" />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="username">
+          <i class="bi bi-person"></i> Nom d'utilisateur
+        </label>
+        <input
+          id="username"
+          formControlName="username"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="address"> <i class="bi bi-house-door"></i> Adresse </label>
+        <input
+          id="address"
+          formControlName="address"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="house">Maison</label>
+        <input
+          id="house"
+          formControlName="house"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="commune">Commune</label>
+        <input
+          id="commune"
+          formControlName="commune"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="city"> <i class="bi bi-geo-alt"></i> Ville </label>
+        <input
+          id="city"
+          formControlName="city"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="age"> <i class="bi bi-calendar"></i> Âge </label>
+        <input
+          id="age"
+          formControlName="age"
+          type="number"
+          class="form-control"
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="gender"> <i class="bi bi-gender-female"></i> Genre </label>
+        <select id="gender" formControlName="gender" class="form-control">
+          <option value="male">Homme</option>
+          <option value="female">Femme</option>
+          <option value="other">Autre</option>
+        </select>
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="maritalStatus">
+          <i class="bi bi-heart"></i> Situation civile
+        </label>
+        <select
+          id="maritalStatus"
+          formControlName="maritalStatus"
+          class="form-control"
+        >
+          <option value="single">Célibataire</option>
+          <option value="married">Marié(e)</option>
+          <option value="divorced">Divorcé(e)</option>
+          <option value="widowed">Veuf(ve)</option>
+        </select>
+      </div>
+
+      <br />
+      <button
+        type="submit"
+        [disabled]="profileForm.invalid"
+        class="btn btn-primary"
+      >
+        <i class="bi bi-save"></i> Sauvegarder
+      </button>
+    </fieldset>
+  </form>
+</div>

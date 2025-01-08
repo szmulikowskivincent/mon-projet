@@ -1,0 +1,15 @@
+.toast-top-center {
+    inset-block-start: 20px !important;
+    inset-inline-start: 50% !important;
+    transform: translateX(-50%);
+}
+
+.toast-success {
+    background-color: green !important;
+    color: white !important;
+}
+
+.toast-error {
+    background-color: red !important;
+    color: white !important;
+}

@@ -1,0 +1,21 @@
+footer a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+footer a:hover {
+    transform: scale(1.2);
+}
+
+.footer-icons a {
+    color: blue;
+}
+
+.footer-icons a:hover {
+    color: darkblue;
+}
+
+.spacer {
+    block-size: 4cm;
+}

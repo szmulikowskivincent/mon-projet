@@ -1,0 +1,20 @@
+<div class="counter-container text-center">
+  <h2 class="text-center">
+    <i class="fa fa-clock fa-lg" style="color: #28a745"></i> Counter
+  </h2>
+
+  <h1>{{ count }}</h1>
+  <div>
+    <button class="btn btn-success" (click)="startCounter()">
+      <i class="fas fa-play"></i> Démarrer
+    </button>
+
+    <button class="btn btn-danger" (click)="stopCounter()">
+      <i class="fas fa-stop"></i> Arrêter
+    </button>
+
+    <button class="btn btn-secondary" (click)="resetCounter()">
+      <i class="fas fa-redo"></i> Réinitialiser
+    </button>
+  </div>
+</div>
