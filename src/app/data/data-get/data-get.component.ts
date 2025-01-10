@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-data-get',
@@ -14,7 +15,7 @@ export class DataGetComponent implements OnInit {
   error: string | null = null;
   showModal: boolean = false;
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private toastr: ToastrService) { } 
 
   ngOnInit(): void {
     if (this.postId) {
@@ -33,6 +34,7 @@ export class DataGetComponent implements OnInit {
       error: (err) => {
         this.error = 'Error loading posts';
         this.posts = [];
+        this.toastr.error(this.error); 
       }
     });
   }
@@ -49,12 +51,14 @@ export class DataGetComponent implements OnInit {
           error: (err) => {
             this.error = 'Error loading comments';
             this.comments = [];
+            this.toastr.error(this.error);
           }
         });
       },
       error: (err) => {
         this.error = 'Error loading post';
         this.selectedPost = null;
+        this.toastr.error(this.error); 
       }
     });
   }
@@ -76,21 +80,19 @@ export class DataGetComponent implements OnInit {
     this.comments = [];
   }
 
-  // Méthode pour supprimer un post
   deletePost(postId: number): void {
     this.postService.deletePost(postId).subscribe({
       next: () => {
-        // Supprimer le post de la liste affichée
         this.posts = this.posts.filter(post => post.id !== postId);
-        alert('Post deleted successfully');
+        this.toastr.success('Post deleted successfully'); 
       },
       error: (err) => {
         this.error = 'Failed to delete post: ' + err.message;
+        this.toastr.error(this.error); 
       }
     });
   }
 
-  // Méthode pour mettre à jour un post
   updatePost(post: any): void {
     const newTitle = prompt('Update Title:', post.title);
     const newBody = prompt('Update Body:', post.body);
@@ -103,15 +105,17 @@ export class DataGetComponent implements OnInit {
           if (index !== -1) {
             this.posts[index] = updatedPost;
           }
-          alert('Post updated successfully');
+          this.toastr.success('Post updated successfully');
         },
         error: (err) => {
           this.error = 'Failed to update post: ' + err.message;
+          this.toastr.error(this.error); 
         }
       });
     }
   }
 }
+
 
 
 
