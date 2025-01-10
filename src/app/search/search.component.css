@@ -1,0 +1,11 @@
+.spacer {
+    margin: 20px 0;
+}
+
+input {
+    margin-inline-end: 10px;
+}
+
+button {
+    display: inline-block;
+}

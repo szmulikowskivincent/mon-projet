@@ -1,0 +1,22 @@
+.spacer {
+    block-size: 0cm;
+}
+
+.photo-card img {
+    max-block-size: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-block-start: 10px;
+}
+
+.icon-container button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

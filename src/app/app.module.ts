@@ -6,18 +6,23 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoListComponent } from '../components/todo-list/todo-list.component';
-import { NavComponent } from '../components/nav/nav.component';
-import { CounterComponent } from '../components/counter/counter.component';
+import { TodoListComponent } from '../components/views/todo-list/todo-list.component';
+import { NavComponent } from './modules/navigation/nav/nav.component';
+import { CounterComponent } from '../components/views/counter/counter.component';
 import { FooterComponent } from '../components/footer/footer.component';
-import { RegisterComponent } from '../components/register/register.component';
-import { LoginComponent } from '../components/login/login.component';
+import { RegisterComponent } from './modules/authentificator/register/register.component';
+import { LoginComponent } from './modules/authentificator/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthGuard } from '../components/auth-guard/auth-guard.component';
+import { AuthGuard } from './modules/authentificator/auth-guard/auth-guard.component';
 import { ProfilComponent } from '../components/profil/profil.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
-import { BookListComponent } from '../components/book-list/book-list.component';
-import { SubNavbarComponent } from '../components/sub-navbar/sub-navbar.component'; 
+import { BookListComponent } from '../components/views/book-list/book-list.component';
+import { SubNavbarComponent } from './modules/navigation/sub-navbar/sub-navbar.component';
+import { DataPostComponent } from './data/data-post/data-post.component';
+import { DataGetComponent } from './data/data-get/data-get.component'; 
+import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './data/todo/todo.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +37,16 @@ import { SubNavbarComponent } from '../components/sub-navbar/sub-navbar.componen
     NotFoundComponent,
     BookListComponent,
     SubNavbarComponent,
+    DataPostComponent,
+    DataGetComponent,
+    TodoComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot({

@@ -1,0 +1,50 @@
+<div class="spacer"></div>
+
+<div>
+  <h3><i class="bi bi-search"></i> Search by Name</h3>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-person"></i></span>
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Enter Name"
+      class="form-control"
+    />
+  </div>
+  <button
+    style="background-color: green"
+    (click)="filterByName()"
+    class="btn btn-primary mt-2"
+  >
+    <i class="bi bi-search"></i> Search by Name
+  </button>
+</div>
+
+<div class="spacer"></div>
+
+<div *ngIf="filteredResults.length > 0">
+  <h3><i class="bi bi-list-ul"></i> Filtered Results</h3>
+  <ul class="list-group">
+    <li
+      *ngFor="let result of filteredResults"
+      class="list-group-item d-flex align-items-center"
+    >
+      <i class="bi bi-person-circle me-3 text-primary"></i>
+      <div>
+        <p class="mb-1">
+          <strong><i class="bi bi-person"></i> Name:</strong> {{ result.name }}
+        </p>
+        <p class="mb-0">
+          <strong><i class="bi bi-envelope"></i> Email:</strong>
+          {{ result.email }}
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="filteredResults.length === 0 && searchTerm">
+  <p>
+    <i class="bi bi-exclamation-triangle-fill text-danger"></i> No results found
+  </p>
+</div>

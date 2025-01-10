@@ -1,0 +1,32 @@
+<div class="spacer"></div>
+
+<app-search></app-search>
+
+<div *ngIf="photos.length > 0" class="container mt-5">
+  <h2 class="text-center mb-4">
+    <i class="bi bi-camera me-2"></i> Photo Gallery
+  </h2>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let photo of photos">
+      <div class="photo-card card mb-4 shadow-sm">
+        <img
+          [src]="photo.thumbnailUrl"
+          alt="{{ photo.title }}"
+          class="card-img-top"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ photo.title }}</h5>
+          <div class="icon-container">
+            <button class="btn btn-primary btn-sm">
+              <i class="bi bi-heart"></i> Like
+            </button>
+            <button class="btn btn-info btn-sm">
+              <i class="bi bi-info-circle"></i> Info
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

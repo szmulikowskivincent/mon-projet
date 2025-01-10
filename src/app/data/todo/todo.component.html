@@ -1,0 +1,101 @@
+<header class="d-flex align-items-center p-3 bg-light border-bottom">
+  <i class="bi bi-bootstrap-fill text-primary me-2" style="font-size: 2rem"></i>
+  <h1 class="m-0">API Search Application</h1>
+</header>
+
+<div class="spacer"></div>
+
+<app-search></app-search>
+
+<br />
+
+<div>
+  <h3><i class="bi bi-search"></i> Search Post by ID</h3>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-identifier"></i></span>
+    <input
+      type="number"
+      [(ngModel)]="todo"
+      placeholder="Enter Todo ID"
+      class="form-control"
+    />
+  </div>
+  <button (click)="searchTodoById()" class="btn btn-primary mt-2">
+    <i class="bi bi-search"></i> Search Post
+  </button>
+</div>
+
+<div class="spacer"></div>
+<div>
+  <h3><i class="bi bi-search"></i> Search Comment by ID</h3>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
+    <input
+      type="number"
+      [(ngModel)]="commentId"
+      placeholder="Enter Comment ID"
+      class="form-control"
+    />
+  </div>
+  <button (click)="searchCommentById()" class="btn btn-primary mt-2">
+    <i class="bi bi-search"></i> Search Comment
+  </button>
+</div>
+
+<div class="spacer"></div>
+
+<div>
+  <h3><i class="bi bi-search"></i> Search Photo by ID</h3>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-image"></i></span>
+    <input
+      type="number"
+      [(ngModel)]="photoId"
+      placeholder="Enter Photo ID"
+      class="form-control"
+    />
+  </div>
+  <button (click)="searchPhotoById()" class="btn btn-primary mt-2">
+    <i class="bi bi-search"></i> Search Photo
+  </button>
+</div>
+
+<div class="spacer"></div>
+
+<div *ngIf="error; else content">
+  <p>
+    <i class="bi bi-exclamation-triangle-fill text-danger"></i>
+    {{ error }}
+  </p>
+</div>
+
+<ng-template #content>
+  <div *ngIf="todo">
+    <h2>
+      <i class="bi bi-check-circle-fill text-success"></i>
+      Post Item
+    </h2>
+    <p><i class="bi bi-identifier"></i> ID: {{ todo.id }}</p>
+    <p><i class="bi bi-pencil"></i> Title: {{ todo.title }}</p>
+    <p>
+      <i class="bi bi-check-all"></i> Completed:
+      {{ todo.completed ? "Yes" : "No" }}
+    </p>
+  </div>
+
+  <div *ngIf="comment">
+    <h3><i class="bi bi-chat-dots"></i> Comment</h3>
+    <p><strong>Name: </strong>{{ comment.name }}</p>
+    <p><strong>Email: </strong>{{ comment.email }}</p>
+    <p><strong>Comment: </strong>{{ comment.body }}</p>
+  </div>
+
+  <div *ngIf="photo">
+    <h3><i class="bi bi-image"></i> Photo</h3>
+    <p><strong>ID: </strong>{{ photo.id }}</p>
+    <p><strong>Title: </strong>{{ photo.title }}</p>
+    <img [src]="photo.url" [alt]="photo.title" class="img-fluid" />
+  </div>
+</ng-template>
+
+<div class="spacer"></div>
