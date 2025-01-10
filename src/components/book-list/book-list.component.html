@@ -1,0 +1,67 @@
+<div class="spacer"></div>
+
+<div class="container mt-4">
+  <h2><i class="bi bi-book"></i> Liste des Livres</h2>
+
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Titre"
+      [(ngModel)]="newBook.title"
+    />
+    <input
+      type="text"
+      class="form-control mt-2"
+      placeholder="Auteur"
+      [(ngModel)]="newBook.author"
+    />
+
+    <br />
+
+    <button class="btn btn-primary mt-2" (click)="addBook()">
+      <i class="bi bi-plus-circle"></i> Ajouter
+    </button>
+  </div>
+
+  <br />
+
+  <ul class="list-group">
+    <li
+      *ngFor="let book of books; let i = index"
+      class="list-group-item d-flex justify-content-between"
+    >
+      <span *ngIf="editingIndex !== i">
+        {{ book.title }} par {{ book.author }}
+      </span>
+
+      <div *ngIf="editingIndex === i" class="d-flex flex-column">
+        <input
+          [(ngModel)]="updatedBook.title"
+          class="form-control mb-2"
+          placeholder="Nouveau Titre"
+        />
+        <input
+          [(ngModel)]="updatedBook.author"
+          class="form-control mb-2"
+          placeholder="Nouvel Auteur"
+        />
+        <button class="btn btn-success btn-sm" (click)="updateBook()">
+          <i class="bi bi-check-circle"></i> Sauvegarder
+        </button>
+        <button class="btn btn-secondary btn-sm mt-1" (click)="cancelEditing()">
+          <i class="bi bi-x-circle"></i> Annuler
+        </button>
+      </div>
+
+      <div *ngIf="editingIndex !== i">
+        <button class="btn btn-warning btn-sm" (click)="startEditing(i)">
+          <i class="bi bi-pencil-square"></i> Modifier
+        </button>
+        <button class="btn btn-danger btn-sm ms-2" (click)="deleteBook(i)">
+          <i class="bi bi-trash"></i> Supprimer
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

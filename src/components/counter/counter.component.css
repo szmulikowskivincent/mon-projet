@@ -16,3 +16,7 @@ h1 {
 button {
     margin: 5px;
 }
+
+.spacer {
+    block-size: 4.1cm;
+}

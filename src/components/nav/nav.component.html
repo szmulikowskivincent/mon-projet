@@ -55,6 +55,58 @@
           </a>
         </li>
 
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <li class="nav-item dropdown" style="margin-inline-end: 50px">
+          <a
+            class="nav-link dropdown-toggle d-flex align-items-center"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fas fa-project-diagram me-2"></i> Projects
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 1</a
+              >
+            </li>
+            <li>
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 2</a
+              >
+            </li>
+            <li>
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 3</a
+              >
+            </li>
+            <li>
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 4</a
+              >
+            </li>
+            <li>
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 5</a
+              >
+            </li>
+          </ul>
+        </li>
+
         <li
           *ngIf="isAuthenticated()"
           class="nav-item"
@@ -102,10 +154,27 @@
           class="nav-item"
           style="margin-inline-end: 50px"
         >
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink="/book-list"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-check-square me-2"></i> Books
+          </a>
+        </li>
+
+        <li
+          *ngIf="isAuthenticated()"
+          class="nav-item"
+          style="margin-inline-end: 50px"
+        >
           <a class="nav-link d-flex align-items-center" (click)="logout()">
             <i class="fas fa-sign-out-alt me-2"></i> Logout
           </a>
         </li>
+
+        <app-sub-navbar></app-sub-navbar>
+
         <li
           *ngIf="isAuthenticated()"
           class="nav-item"

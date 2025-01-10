@@ -14,7 +14,10 @@ import { RegisterComponent } from '../components/register/register.component';
 import { LoginComponent } from '../components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../components/auth-guard/auth-guard.component';
-import { ProfilComponent } from '../components/profil/profil.component'; 
+import { ProfilComponent } from '../components/profil/profil.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
+import { BookListComponent } from '../components/book-list/book-list.component';
+import { SubNavbarComponent } from '../components/sub-navbar/sub-navbar.component'; 
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { ProfilComponent } from '../components/profil/profil.component';
     RegisterComponent,
     LoginComponent,
     ProfilComponent,
+    NotFoundComponent,
+    BookListComponent,
+    SubNavbarComponent,
   ],
   imports: [
     BrowserModule,

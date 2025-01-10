@@ -54,7 +54,7 @@ export class ProfilComponent implements OnInit {
 
   getInitials(username: string): string {
     const initials = username.split(' ').map((word: string) => word.charAt(0).toUpperCase()).join('');
-    return initials || 'AA'; 
+    return initials || 'JD'; 
   }
 
   onSubmit(): void {
@@ -75,7 +75,7 @@ export class ProfilComponent implements OnInit {
       const profileData = JSON.parse(storedProfile);
       return profileData.initials || 'AA';
     }
-    return 'AA';
+    return 'JD';
   }
 }
 

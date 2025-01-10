@@ -11,7 +11,8 @@ export class NavComponent implements OnInit {
   userProfile: any = null;
   initials: string = '';
   avatarUrl: string | null = null;
-getUserInitials: any;
+  getUserInitials: any;
+  isSubNavVisible = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -22,6 +23,10 @@ getUserInitials: any;
       this.initials = this.getInitials(this.userProfile.username);
       this.avatarUrl = this.userProfile.avatarUrl;
     }
+  }
+
+  toggleSubNav() {
+    this.isSubNavVisible = !this.isSubNavVisible;
   }
 
   logout() {
