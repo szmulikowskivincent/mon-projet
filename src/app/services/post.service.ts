@@ -1,91 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  constructor() { }
+  private apiUrl = 'https://jsonplaceholder.typicode.com/posts'; 
 
-  deletePost(postId: number): Observable<void> {
-    return new Observable(observer => {
-      fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
-        method: 'DELETE',
-      })
-        .then(response => {
-          if (response.ok) {
-            observer.next();  
-            observer.complete();
-          } else {
-            observer.error('Error deleting post');
-          }
-        })
-        .catch(error => {
-          observer.error('Error deleting post');
-        });
+  constructor(private http: HttpClient) { }
+
+  createPost(postData: any): Observable<any> {
+    return this.http.post(this.apiUrl, postData, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }
 
-  updatePost(id: any, updatedData: any): Observable<any> {
-    return new Observable(observer => {
-      fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedData),
-      })
-        .then(response => response.json())
-        .then(json => {
-          observer.next(json);
-          observer.complete();
-        })
-        .catch(error => {
-          observer.error('Error updating post');
-        });
+  deletePost(postId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${postId}`);
+  }
+
+  updatePost(id: number, updatedData: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, updatedData, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }
 
   getPosts(): Observable<any> {
-    return new Observable(observer => {
-      fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(response => response.json())
-        .then(json => {
-          observer.next(json);
-          observer.complete();
-        })
-        .catch(error => {
-          observer.error('Error fetching posts');
-        });
-    });
+    return this.http.get<any>(this.apiUrl);
   }
 
   getPostById(postId: number): Observable<any> {
-    return new Observable(observer => {
-      fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-        .then(response => response.json())
-        .then(json => {
-          observer.next(json);
-          observer.complete();
-        })
-        .catch(error => {
-          observer.error('Error fetching post');
-        });
-    });
+    return this.http.get<any>(`${this.apiUrl}/${postId}`);
   }
 
   getCommentsByPostId(postId: number): Observable<any> {
-    return new Observable(observer => {
-      fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
-        .then(response => response.json())
-        .then(comments => {
-          observer.next(comments);
-          observer.complete();
-        })
-        .catch(error => {
-          observer.error('Error fetching comments');
-        });
-    });
+    return this.http.get<any>(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
   }
 }
+
 

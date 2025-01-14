@@ -25,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TodoComponent } from './data/todo/todo.component';
 import { SearchComponent } from './search/search.component';
 import { CalendarComponent } from '../components/views/calendar/calendar.component';
+import { CreatePostComponent } from './data/create-post/create-post.component';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { CalendarComponent } from '../components/views/calendar/calendar.compone
     TodoComponent,
     SearchComponent,
     CalendarComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,

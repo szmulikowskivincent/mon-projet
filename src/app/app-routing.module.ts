@@ -12,6 +12,7 @@ import { DataPostComponent } from './data/data-post/data-post.component';
 import { DataGetComponent } from './data/data-get/data-get.component';
 import { TodoComponent } from './data/todo/todo.component';
 import { CalendarComponent } from 'src/components/views/calendar/calendar.component';
+import { CreatePostComponent } from './data/create-post/create-post.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'data-post', component: DataPostComponent },
   { path: 'data-get', component: DataGetComponent },
   { path: 'data-todos', component: TodoComponent },
+  { path: 'data-create', component: CreatePostComponent },
   { path: 'trello', component: CalendarComponent },
   { path: 'todo-list', component: TodoListComponent, canActivate: [AuthGuard] }, 
   { path: '', redirectTo: '/login', pathMatch: 'full' },

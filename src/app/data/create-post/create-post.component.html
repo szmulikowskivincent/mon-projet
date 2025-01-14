@@ -1,0 +1,79 @@
+<div class="spacer"></div>
+
+<div class="container">
+  <h2><i class="bi bi-pencil-square"></i> Créer un Post</h2>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title"></label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+            ><i class="bi bi-pencil-fill"></i
+          ></span>
+        </div>
+        <input
+          id="title"
+          formControlName="title"
+          class="form-control"
+          placeholder="Titre :"
+          type="text"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="body"></label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+            ><i class="bi bi-file-earmark-text-fill"></i
+          ></span>
+        </div>
+        <textarea
+          id="body"
+          formControlName="body"
+          class="form-control"
+          placeholder="Contenu :"
+          rows="5"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="userId"></label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+            ><i class="bi bi-person-fill"></i
+          ></span>
+        </div>
+        <input
+          id="userId"
+          formControlName="userId"
+          class="form-control"
+          placeholder="ID de l'utilisateur :"
+          type="number"
+        />
+      </div>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">
+      <i class="bi bi-plus-circle"></i> Créer le Post
+    </button>
+  </form>
+
+  <br /><br />
+
+  <h2><i class="bi bi-pencil-square"></i> Créer un Post</h2>
+  <div *ngFor="let post of posts">
+    <div class="post">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+      <p><strong>Utilisateur ID:</strong> {{ post.userId }}</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
