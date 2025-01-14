@@ -1,0 +1,15 @@
+.spacer {
+    block-size: 4cm;
+}
+
+.is-valid {
+    border-color: #28a745;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.spacer {
+    block-size: 4.2cm;
+}

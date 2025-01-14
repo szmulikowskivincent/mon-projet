@@ -1,0 +1,12 @@
+.todo-container {
+    max-inline-size: 600px;
+    margin: 0 auto;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.spacer {
+    block-size: 3.4cm;
+}

@@ -1,0 +1,17 @@
+.modal-dialog {
+    max-inline-size: 2320px;
+    margin-block-start: -440px;
+}
+
+.modal-content {
+    block-size: 75px;
+}
+
+button {
+    margin-inline-end: 50px
+}
+
+h5 {
+    font-size: 24px;
+    margin-inline-start: -960px;
+}

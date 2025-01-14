@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { DataGetComponent } from './data/data-get/data-get.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoComponent } from './data/todo/todo.component';
 import { SearchComponent } from './search/search.component';
+import { CalendarComponent } from '../components/views/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -41,10 +43,12 @@ import { SearchComponent } from './search/search.component';
     DataGetComponent,
     TodoComponent,
     SearchComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DragDropModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

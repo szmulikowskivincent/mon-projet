@@ -80,44 +80,31 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a
-                *ngIf="isAuthenticated()"
-                class="dropdown-item"
-                href="/data-post"
-                >Data-Photos</a
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 1</a
               >
             </li>
             <li>
-              <a
-                *ngIf="isAuthenticated()"
-                class="dropdown-item"
-                href="/data-get"
-                >Data-Get</a
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 2</a
               >
             </li>
             <li>
-              <a
-                *ngIf="isAuthenticated()"
-                class="dropdown-item"
-                href="/data-todos"
-                >Data-Post</a
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 3</a
+              >
+            </li>
+            <li>
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 4</a
+              >
+            </li>
+            <li>
+              <a *ngIf="isAuthenticated()" class="dropdown-item" href="#"
+                >Projet 5</a
               >
             </li>
           </ul>
-        </li>
-
-        <li
-          *ngIf="isAuthenticated()"
-          class="nav-item"
-          style="margin-inline-end: 50px"
-        >
-          <a
-            class="nav-link d-flex align-items-center"
-            routerLink="/trello"
-            routerLinkActive="active"
-          >
-            <i class="fas fa-check-square me-2"></i> Trello
-          </a>
         </li>
 
         <li

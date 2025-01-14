@@ -1,0 +1,36 @@
+.spacer {
+    block-size: 3.2cm;
+}
+
+html,
+body {
+    block-size: 100%;
+    margin: 0;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    overflow-x: auto;
+}
+
+.list-inline {
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.list-inline li {
+    display: inline-block;
+    margin-inline-end: 8px;
+    vertical-align: middle;
+}
+
+.form-check-input {
+    transform: scale(1.2);
+    cursor: pointer;
+}

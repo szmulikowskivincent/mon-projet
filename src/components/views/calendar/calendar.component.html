@@ -1,0 +1,87 @@
+<div class="spacer"></div>
+
+<div #calendarContainer class="row flex-grow-1 overflow-auto">
+  <div
+    class="d-flex flex-row justify-content-start align-items-stretch overflow-auto"
+    style="white-space: nowrap"
+  >
+    <div
+      class="card mx-2"
+      *ngFor="let day of days"
+      style="min-inline-size: 300px; block-size: 400px"
+    >
+      <div
+        class="card-header bg-info text-white d-flex justify-content-between align-items-center"
+      >
+        <span>{{ day.name }}</span>
+        <span class="badge bg-secondary">{{ day.date | date : "dd MMM" }}</span>
+      </div>
+
+      <div class="card-body d-flex flex-column">
+        <div>
+          <h6 class="text-primary"><i class="bi bi-clock"></i> À exécuter</h6>
+          <ul
+            class="list-inline"
+            cdkDropList
+            [cdkDropListData]="day.tasksToDo"
+            (cdkDropListDropped)="onDrop($event)"
+          >
+            <li
+              *ngFor="let task of day.tasksToDo"
+              cdkDrag
+              class="d-inline-block p-2 border rounded me-2 bg-light"
+            >
+              <input
+                type="checkbox"
+                (change)="toggleTaskStatus(day, task, false)"
+                class="form-check-input me-2"
+              />
+              {{ task }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-2">
+          <input
+            [(ngModel)]="day.newTask"
+            type="text"
+            class="form-control"
+            placeholder="Nouvelle tâche"
+            (keyup.enter)="addTask(day)"
+          />
+          <button class="btn btn-sm btn-primary mt-2" (click)="addTask(day)">
+            Ajouter
+          </button>
+        </div>
+
+        <div class="mt-4">
+          <h6 class="text-success">
+            <i class="bi bi-check-circle-fill"></i> Fait
+          </h6>
+          <ul
+            class="list-inline"
+            cdkDropList
+            [cdkDropListData]="day.tasksDone"
+            (cdkDropListDropped)="onDrop(event)"
+          >
+            <li
+              *ngFor="let task of day.tasksDone"
+              cdkDrag
+              class="d-inline-block p-2 border rounded me-2 bg-light"
+            >
+              <input
+                type="checkbox"
+                checked
+                (change)="toggleTaskStatus(day, task, true)"
+                class="form-check-input me-2"
+              />
+              {{ task }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
